@@ -1,20 +1,39 @@
 package com.scrumtrek.simplestore;
 
+import com.sun.istack.internal.NotNull;
+
 public class Rental {
-	private Movie m_Movie;
-	private int m_DaysRented;
+    private String customerName;
+    private String movieTitle;
+    private PriceCode priceCode;
+    private int daysRented;
 
-	public Rental(Movie movie, int daysRented) {
-		m_Movie = movie;
-		m_DaysRented = daysRented;
-	}
+    @SuppressWarnings("unused")
+    private Rental() {
+    }
 
-	public int getDaysRented() {
-		return m_DaysRented;
-	}
+    public Rental(@NotNull String customerName, @NotNull String movieTitle, @NotNull PriceCode priceCode,
+                  int daysRented) {
+        this.customerName = customerName;
+        this.movieTitle = movieTitle;
+        this.priceCode = priceCode;
+        this.daysRented = daysRented;
+    }
 
-	public Movie getMovie() {
-		return m_Movie;
-	}
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getMovieTitle() {
+        return movieTitle;
+    }
+
+    public PriceCode getPriceCode() {
+        return priceCode;
+    }
+
+    public int getDaysRented() {
+        return daysRented;
+    }
 }
 
