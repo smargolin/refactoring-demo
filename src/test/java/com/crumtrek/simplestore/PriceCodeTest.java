@@ -34,4 +34,13 @@ public class PriceCodeTest {
         assert (Childrens.getRentalPoints(0) == 0);
         assert (Childrens.getRentalPoints(5) == 1);
     }
+
+    @Test
+    public void testXXXPriceCode() {
+        assert (XXXPriceCode.getPrice(-1) == 0.0);
+        assert (XXXPriceCode.getPrice(0) == 0.0);
+        assert (XXXPriceCode.getPrice(5) == 3.5);
+        assert (XXXPriceCode.getRentalPoints(0) == 0);
+        assert (XXXPriceCode.getRentalPoints(5) == 1);
+    }
 }
