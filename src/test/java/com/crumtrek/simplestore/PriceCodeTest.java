@@ -15,6 +15,7 @@ public class PriceCodeTest {
         Assert.assertTrue(Regular.getPrice(0) == 0.0);
         Assert.assertTrue(Regular.getPrice(2) == 2.0);
         Assert.assertTrue(Regular.getPrice(5) == 6.5);
+        Assert.assertTrue(Regular.getRentalPoints(-10) == 0);
         Assert.assertTrue(Regular.getRentalPoints(0) == 0);
         Assert.assertTrue(Regular.getRentalPoints(1) == 1);
         Assert.assertTrue(Regular.getRentalPoints(5) == 1);
@@ -26,6 +27,7 @@ public class PriceCodeTest {
         Assert.assertTrue (NewRelease.getPrice(0) == 0.0);
         Assert.assertTrue (NewRelease.getPrice(2) == 6.0);
         Assert.assertTrue (NewRelease.getPrice(5) == 15.0);
+        Assert.assertTrue (NewRelease.getRentalPoints(-10) == 0.0);
         Assert.assertTrue (NewRelease.getRentalPoints(0) == 0.0);
         Assert.assertTrue (NewRelease.getRentalPoints(1) == 1.0);
         Assert.assertTrue (NewRelease.getRentalPoints(5) == 2.0);
@@ -37,6 +39,7 @@ public class PriceCodeTest {
         Assert.assertTrue (Childrens.getPrice(0) == 0.0);
         Assert.assertTrue (Childrens.getPrice(2) == 1.5);
         Assert.assertTrue (Childrens.getPrice(5) == 3.0);
+        Assert.assertTrue (Childrens.getRentalPoints(-10) == 0);
         Assert.assertTrue (Childrens.getRentalPoints(0) == 0);
         Assert.assertTrue (Childrens.getRentalPoints(1) == 1);
         Assert.assertTrue (Childrens.getRentalPoints(5) == 1);
@@ -46,8 +49,12 @@ public class PriceCodeTest {
     public void testXXXPriceCode() {
         Assert.assertTrue (XXXPriceCode.getPrice(-1) == 0.0);
         Assert.assertTrue (XXXPriceCode.getPrice(0) == 0.0);
+        Assert.assertTrue (XXXPriceCode.getPrice(2) == 2.0);
         Assert.assertTrue (XXXPriceCode.getPrice(5) == 3.5);
+        Assert.assertTrue (XXXPriceCode.getRentalPoints(-10) == 0);
         Assert.assertTrue (XXXPriceCode.getRentalPoints(0) == 0);
+        Assert.assertTrue (XXXPriceCode.getRentalPoints(1) == 1);
+        Assert.assertTrue (XXXPriceCode.getRentalPoints(3) == 1);
         Assert.assertTrue (XXXPriceCode.getRentalPoints(5) == 1);
     }
 }
