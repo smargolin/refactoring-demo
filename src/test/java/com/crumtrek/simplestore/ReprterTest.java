@@ -22,29 +22,33 @@ public class ReprterTest {
 final static String JSO_NMIKKI_REPORT ="{\"customer\":\"Mickey Mouse\",\"movies\":{\"Cinderella\":3.0,\"Star Wars\":6.5,\"Gladiator\":15.0},\"total\":24.5,\"rentals\":4}";
     @Test
     public void testCustomerReport() {
-        String custormer = "Mickey Mouse";
+        String custormer1 = "Mickey Mouse";
+        String custormer2 = "John Doye";
         String order = "N1";
         List<Rental> rentals = new ArrayList<>();
-        rentals.add(new Rental(custormer, order, "Cinderella", Childrens, 5));
-        rentals.add(new Rental(custormer, order, "Star Wars", Regular, 5));
-        rentals.add(new Rental(custormer, order, "Gladiator", NewRelease, 5));
+        rentals.add(new Rental(custormer1, order, "Cinderella", Childrens, 5));
+        rentals.add(new Rental(custormer1, order, "Star Wars", Regular, 5));
+        rentals.add(new Rental(custormer1, order, "Gladiator", NewRelease, 5));
+        rentals.add(new Rental(custormer2, "N2", "Gladiator", NewRelease, 5));
 
         // Generate invoice
-        String statement = Reporter.customerReport(custormer, rentals);
+        String statement = Reporter.customerReport(custormer1, rentals);
         Assert.assertTrue (MIKKI_REPORT.equals(statement));
     }
 
     @Test
     public void testJSONCustomerReport() {
-        String custormer = "Mickey Mouse";
+        String custormer1 = "Mickey Mouse";
+        String custormer2 = "John Doye";
         String order = "N1";
         List<Rental> rentals = new ArrayList<>();
-        rentals.add(new Rental(custormer, order, "Cinderella", Childrens, 5));
-        rentals.add(new Rental(custormer, order, "Star Wars", Regular, 5));
-        rentals.add(new Rental(custormer, order, "Gladiator", NewRelease, 5));
+        rentals.add(new Rental(custormer1, order, "Cinderella", Childrens, 5));
+        rentals.add(new Rental(custormer1, order, "Star Wars", Regular, 5));
+        rentals.add(new Rental(custormer1, order, "Gladiator", NewRelease, 5));
+        rentals.add(new Rental(custormer2, "N2", "Gladiator", NewRelease, 5));
 
         // Generate invoice
-        String statement = Reporter.customerJSONReport(custormer, rentals);
+        String statement = Reporter.customerJSONReport(custormer1, rentals);
         Assert.assertTrue (JSO_NMIKKI_REPORT.equals(statement));
     }
 }
