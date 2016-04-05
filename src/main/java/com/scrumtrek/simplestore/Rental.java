@@ -14,6 +14,15 @@ public class Rental {
     private Rental() {
     }
 
+    /**
+     * Создает запись об аренде фильма.
+     *
+     * @param customerName ID покупателя
+     * @param orderId ID заказа
+     * @param movieTitle название фильма
+     * @param priceCode тип тарификации
+     * @param daysRented количество дней аренды
+     */
     public Rental(String customerName, String orderId, String movieTitle, PriceCode priceCode,
                   int daysRented) {
         this.customerName = customerName;
@@ -23,18 +32,35 @@ public class Rental {
         this.daysRented = daysRented;
     }
 
+    /**
+     * Возаращает ID покупателя
+     * @return ID покупателя
+     */
     public String getCustomerName() {
         return customerName;
     }
 
+    /**
+     * Возвращает название фильма
+     *
+     * @return название фильма
+     */
     public String getMovieTitle() {
         return movieTitle;
     }
 
+    /**
+     * Возаращает тип тарификации
+     * @return ID покупателя
+     */
     public PriceCode getPriceCode() {
         return priceCode;
     }
 
+    /**
+     * Возаращает количество дней аренды
+     * @return ID покупателя
+     */
     public int getDaysRented() {
         return daysRented;
     }

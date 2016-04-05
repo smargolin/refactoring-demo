@@ -74,5 +74,4 @@ public class Reporter {
         jsonBuilder.add("rentals", rentalPoints);
         return jsonBuilder.build().toString();
     }
-
 }
