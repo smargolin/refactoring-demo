@@ -1,6 +1,5 @@
 package com.crumtrek.simplestore;
 
-import com.scrumtrek.simplestore.PriceCode;
 import com.scrumtrek.simplestore.Rental;
 import org.junit.Test;
 

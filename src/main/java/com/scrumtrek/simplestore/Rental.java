@@ -1,7 +1,5 @@
 package com.scrumtrek.simplestore;
 
-import com.sun.istack.internal.NotNull;
-
 public class Rental {
     private String customerName;
     private String movieTitle;
@@ -12,7 +10,7 @@ public class Rental {
     private Rental() {
     }
 
-    public Rental(@NotNull String customerName, @NotNull String movieTitle, @NotNull PriceCode priceCode,
+    public Rental(String customerName, String movieTitle, PriceCode priceCode,
                   int daysRented) {
         this.customerName = customerName;
         this.movieTitle = movieTitle;
