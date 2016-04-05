@@ -1,14 +1,8 @@
 package com.scrumtrek.simplestore;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Student on 05.04.2016.
