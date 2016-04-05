@@ -16,12 +16,18 @@ public enum PriceCode {
     Childrens {
         @Override
         public double getPrice(int days) {
-            return (days > 3) ? (days - 3) * 1.5 : (days <= 0) ? 0 : 1.5;
+            return (days <= 0) ? 0 : (days > 3) ? (days - 3) * 1.5 : 1.5;
+        }
+    },
+    XXXPriceCode {
+        @Override
+        public double getPrice(int days) {
+            return (days <= 0) ? 0 : (days > 4) ? 2 + (days - 4) * 1.5 : 2;
         }
     };
 
     public double getPrice(int days) {
-        return (days > 2) ? 2 + (days - 2) * 1.5 : (days <= 0) ? 0 : 2;
+        return (days <= 0) ? 0 : (days > 2) ? 2 + (days - 2) * 1.5 : 2;
     }
 
     public double getRentalPoints(int days) {

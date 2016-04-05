@@ -1,11 +1,30 @@
 package com.scrumtrek.simplestore;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import javax.json.Json;
+import javax.json.JsonObjectBuilder;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Student on 05.04.2016.
  */
 public class Reporter {
+    public static int REPORT_LEVEL_BRIEF = 1;
+    public static int REPORT_LEVEL_MEDIUM = 2;
+    public static int REPORT_LEVEL_FULL = 3;
+
+    /**
+     * Формирует отчет по заказам клиента из предоставленного списка заказов.
+     *
+     * @param customerName идентификатор клиента
+     * @param rentals      список всех заказов
+     * @return
+     */
     public static String customerReport(String customerName, Collection<Rental> rentals) {
         StringBuilder result = new StringBuilder();
         result.append("Rental record for ");
@@ -18,11 +37,7 @@ public class Reporter {
             if (customerName.equals(r.getCustomerName())) {
                 totalAmount += r.getPriceCode().getPrice(r.getDaysRented());
                 rentalPoints += r.getPriceCode().getRentalPoints(r.getDaysRented());
-                result.append("\t");
-                result.append(r.getMovieTitle());
-                result.append("\t");
-                result.append(r.getPriceCode().getPrice(r.getDaysRented()));
-                result.append("\n");
+                result.append(r.toString());
             }
         }
 
@@ -34,4 +49,30 @@ public class Reporter {
         result.append(" frequent renter points.");
         return result.toString();
     }
+
+    /**
+     * Метод формирует JSON отчет по клиенту
+     *
+     * @return
+     */
+    public static String customerJSONReport(String customerName, Collection<Rental> rentals) {
+        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+        jsonBuilder.add("customer", customerName);
+
+        double totalAmount = 0;
+        long rentalPoints = 0;
+        JsonObjectBuilder movies = Json.createObjectBuilder();
+        for (Rental r : rentals) {
+            if (customerName.equals(r.getCustomerName())) {
+                totalAmount += r.getPriceCode().getPrice(r.getDaysRented());
+                rentalPoints += r.getPriceCode().getRentalPoints(r.getDaysRented());
+                movies.add(r.getMovieTitle(), r.getPriceCode().getPrice(r.getDaysRented()));
+            }
+        }
+        jsonBuilder.add("movies", movies);
+        jsonBuilder.add("total", totalAmount);
+        jsonBuilder.add("rentals", rentalPoints);
+        return jsonBuilder.build().toString();
+    }
+
 }

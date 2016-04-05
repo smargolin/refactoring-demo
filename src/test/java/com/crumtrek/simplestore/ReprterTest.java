@@ -23,13 +23,28 @@ public class ReprterTest {
     @Test
     public void testCustomerReport() {
         String custormer = "Mickey Mouse";
+        String order = "N1";
         List<Rental> rentals = new ArrayList<>();
-        rentals.add(new Rental(custormer, "Cinderella", Childrens, 5));
-        rentals.add(new Rental(custormer, "Star Wars", Regular, 5));
-        rentals.add(new Rental(custormer, "Gladiator", NewRelease, 5));
+        rentals.add(new Rental(custormer, order, "Cinderella", Childrens, 5));
+        rentals.add(new Rental(custormer, order, "Star Wars", Regular, 5));
+        rentals.add(new Rental(custormer, order, "Gladiator", NewRelease, 5));
 
         // Generate invoice
         String statement = Reporter.customerReport(custormer, rentals);
+        assert (MIKKI_REPORT.equals(statement));
+    }
+
+    @Test
+    public void testJSONCustomerReport() {
+        String custormer = "Mickey Mouse";
+        String order = "N1";
+        List<Rental> rentals = new ArrayList<>();
+        rentals.add(new Rental(custormer, order, "Cinderella", Childrens, 5));
+        rentals.add(new Rental(custormer, order, "Star Wars", Regular, 5));
+        rentals.add(new Rental(custormer, order, "Gladiator", NewRelease, 5));
+
+        // Generate invoice
+        String statement = Reporter.customerJSONReport(custormer, rentals);
         assert (MIKKI_REPORT.equals(statement));
     }
 }
