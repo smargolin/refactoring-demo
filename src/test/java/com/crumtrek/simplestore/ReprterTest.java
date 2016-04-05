@@ -19,7 +19,7 @@ public class ReprterTest {
             "\tGladiator\t15.0\n" +
             "Amount owed is 24.5\n" +
             "You earned 4 frequent renter points.";
-
+final static String JSO_NMIKKI_REPORT ="{\"customer\":\"Mickey Mouse\",\"movies\":{\"Cinderella\":3.0,\"Star Wars\":6.5,\"Gladiator\":15.0},\"total\":24.5,\"rentals\":4}";
     @Test
     public void testCustomerReport() {
         String custormer = "Mickey Mouse";
@@ -45,6 +45,6 @@ public class ReprterTest {
 
         // Generate invoice
         String statement = Reporter.customerJSONReport(custormer, rentals);
-        assert (MIKKI_REPORT.equals(statement));
+        assert (JSO_NMIKKI_REPORT.equals(statement));
     }
 }
