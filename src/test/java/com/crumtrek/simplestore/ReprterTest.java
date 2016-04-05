@@ -31,7 +31,7 @@ final static String JSO_NMIKKI_REPORT ="{\"customer\":\"Mickey Mouse\",\"movies\
 
         // Generate invoice
         String statement = Reporter.customerReport(custormer, rentals);
-        assert (MIKKI_REPORT.equals(statement));
+        Assert.assertTrue (MIKKI_REPORT.equals(statement));
     }
 
     @Test
@@ -45,6 +45,6 @@ final static String JSO_NMIKKI_REPORT ="{\"customer\":\"Mickey Mouse\",\"movies\
 
         // Generate invoice
         String statement = Reporter.customerJSONReport(custormer, rentals);
-        assert (JSO_NMIKKI_REPORT.equals(statement));
+        Assert.assertTrue (JSO_NMIKKI_REPORT.equals(statement));
     }
 }
